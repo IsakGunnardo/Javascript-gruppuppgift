@@ -1,3 +1,4 @@
+let mainWrapper = document.getElementById("main-wrapper");
 //drink 1 fetch
 function getMargarita() {
     fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=blue margarita')
@@ -10,7 +11,7 @@ function getMargarita() {
 
                 response.json().then(function (data) {
                      console.log(data)
-                    displayRandomCocktail(data)
+                    displayMargaritaCocktail(data)
                 });
             }
         )
@@ -22,11 +23,30 @@ function getMargarita() {
 }
 
 getMargarita()
-
-function displayRandomCocktail(cocktail) {
+let margaritaSec = document.getElementById("drink1");
+function displayMargaritaCocktail(cocktail) {
+    margaritaSec.
     console.log(cocktail.drinks[0].strDrink);
 
+    margaritaSec.innerHTML = "";
+    console.log(cocktail.drinks[0].strDrink);
+
+
+    let drinkName = document.createElement("h2");
+    drinkName.innerHTML = cocktail.drinks[0].strDrink;
+
+    margaritaSec.appendChild(drinkName);
+mainWrapper.append(margaritaSec)
+    let img = document.createElement("img");
+    img.src = cocktail.drinks[0].strDrinkThumb;
+
+    margaritaSec.appendChild(img)
+
+    img.width= "200"
+    img.height= "200"
 }
+
+
 //drink 2 fetch
 function getGG() {
     fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=GG')
@@ -39,7 +59,7 @@ function getGG() {
 
                 response.json().then(function (data) {
                      console.log(data)
-                    displayRandomCocktail(data)
+                    displayGGCocktail(data)
                 });
             }
         )
@@ -51,10 +71,28 @@ function getGG() {
 }
 
 getGG()
-
-function displayRandomCocktail(cocktail) {
+let ggSec = document.getElementById("drink2");
+function displayGGCocktail(cocktail) {
+    ggSec.
     console.log(cocktail.drinks[0].strDrink);
 
+    ggSec.innerHTML = "";
+    console.log(cocktail.drinks[0].strDrink);
+
+
+    let drinkName = document.createElement("h2");
+    drinkName.innerHTML = cocktail.drinks[0].strDrink;
+
+    ggSec.appendChild(drinkName);
+    
+mainWrapper.append(ggSec)
+    let img = document.createElement("img");
+    img.src = cocktail.drinks[0].strDrinkThumb;
+
+    ggSec.appendChild(img)
+
+    img.width= "200"
+    img.height= "200"
 }
 
 //drink 3 fetch
@@ -292,7 +330,7 @@ function getRandomCocktail(drink) {
         searchBtn.addEventListener("click", ()=>{
 
             getRandomCocktail(search.value)
-        }).reload(); 
+        })
        
 }
 
@@ -319,4 +357,35 @@ function displayRandomCocktail(cocktail) {
     img.height= "200"
 }
 
+/*
+//Get random cocktail/*
+let randomBtn = document.getElementById()
+function getMargarita() {
+    fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
+        .then(
+            function (response) {
+                if (response.status !== 200) {
+                    console.log("Looks like there was a problem. Status Code: " + response.status);
+                    return;
+                }
+
+                response.json().then(function (data) {
+                     console.log(data)
+                    displayRandomCocktail(data)
+                });
+            }
+        )
+        .catch(function (err) {
+            console.log("fetch Error :-S", err);
+        })
+      
+
+}
+
+getMargarita()
+
+function displayRandomCocktail(cocktail) {
+    console.log(cocktail.drinks[0].strDrink);
+
+}*/
 
