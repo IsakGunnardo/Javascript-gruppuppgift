@@ -268,8 +268,8 @@ function displayRandomCocktail(cocktail) {
 }
 
 //fetch för att söka drink
-let search = document.getElementById("src");
-let searchBtn = document.getElementById("src-btn")
+let search = document.getElementById("search-drink");
+let searchBtn = document.getElementById("drink-search")
 
 function getRandomCocktail(drink) {
     fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s='+ drink)
@@ -297,7 +297,26 @@ function getRandomCocktail(drink) {
 }
 
 getRandomCocktail()
+let drinkSection = document.querySelector("#drink-section")
 
 function displayRandomCocktail(cocktail) {
+
+    drinkSection.innerHTML = "";
     console.log(cocktail.drinks[0].strDrink);
+
+
+    let drinkName = document.createElement("h2");
+    drinkName.innerHTML = cocktail.drinks[0].strDrink;
+
+    drinkSection.appendChild(drinkName);
+
+    let img = document.createElement("img");
+    img.src = cocktail.drinks[0].strDrinkThumb;
+
+    drinkSection.appendChild(img)
+
+    img.width= "200"
+    img.height= "200"
 }
+
+
