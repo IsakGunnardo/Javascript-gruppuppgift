@@ -1,0 +1,180 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+/* Set core body defaults */
+body {
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+/* start css*/
+
+/* grid-container*/
+.container {
+  display: grid;
+  grid-template-columns: 
+    repeat(auto-fit, minmax(200px, 1fr));
+  min-height: 100vh;
+}
+
+/* Header */
+.page-header {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  text-align: center;
+  background-color: #E5D9B6;
+  color: whitesmoke;
+  font-size: 100px;
+}
+
+/* Navigation-bar */
+.navbar {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  text-align: center;
+  background-color: #A4BE7B;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: space-around;
+
+  margin: 0;
+  margin-top: 1em;
+  padding: 0;
+
+  list-style: none;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* search for drinks */
+.search-input {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  text-align: center;
+  background-color: #A4BE7B;
+  height: 40px;
+}
+
+/* drinks */
+.main-content {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  background-color: #5F8D4E;S
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.quarter {
+  padding: 0 6px;
+  float: left;
+  width: 24.99999%;
+}
+
+@media only screen and (max-width: 700px) {
+  .quarter {
+    width: 49.99999%;
+    margin: 6px 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .quarter {
+    width: 100%;
+  }
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* picture-gallery */
+
+/* footer */
+.footer {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  background-color: #285430;
+  font-size: 50px;
+  color: whitesmoke;
+  text-align: center;
+  height: 100px;
+}

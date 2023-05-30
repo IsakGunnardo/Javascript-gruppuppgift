@@ -1,7 +1,3 @@
-let name1 = "isak ";
-let name2 = " Malin";
-let name3 = " Simon";
-
-console.log(name1 + name2 + name3);
-asdasdas
-asfsdf
+fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita')
+  .then((response) => response.json())
+  .then((json) => console.log(json));
