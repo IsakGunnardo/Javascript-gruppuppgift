@@ -3,23 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
     <title>Drink</title>
 </head>
 <body>
-
-    <header>
-        <nav>
-            <ul>
-                <li><button id="home-btn">Home</button></li>
-                <li><button id="random-btn">Get Random Cocktail</button></li>
-                <li><Button id="cocktailamount"></Button></li>
-
+    <header class="top-nav">
+            <input id="menu-toggle" type="checkbox" />
+            <label class='menu-button-container' for="menu-toggle">
+            <div class='menu-button'></div>
+          </label>
+            <ul class="menu">
+              <li><button id="home-btn">Home</button></li>
+              <li><button id="random-btn">Get Random Cocktail</button></li>
+              <li><Button id="cocktailamount">A</Button></li>
             </ul>
-        </nav>
+            <div id="logo-text">
+                &#127881;  Cocktails 4 Programmers &#127881;
+            </div>
+            <input type="search" name="search-drink" id="search-drink" placeholder="Sök på en drink...">
+            <button type="submit" id="drink-search">Sök</button>
     </header>
+    <div id="drink-section"></div>
 
-    <div id="main-wrapper"></div>
+    <div id="main-wrapper">
+      <div class="drink1"></div>
+      <div class="drink2"></div>
+      <div class="drink3"></div>
+      <div class="drink4"></div>
+      <div class="drink5"></div>
+      <div class="drink6"></div>
+      <div class="drink7"></div>
+      <div class="drink8"></div>
+      <div class="drink9"></div>
+    </div>
     <script src="index.js"></script>
 </body>
 </html>
