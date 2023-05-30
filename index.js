@@ -1,7 +1,10 @@
 let mainWrapper = document.getElementById("main-wrapper");
-//drink 1 fetch
-function getMargarita() {
-    fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=blue margarita')
+let drinkSection = document.querySelector("#drink-section")
+
+
+
+function getCocktail(name) {
+    fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + name)
         .then(
             function (response) {
                 if (response.status !== 200) {
@@ -10,307 +13,57 @@ function getMargarita() {
                 }
 
                 response.json().then(function (data) {
-                     console.log(data)
-                    displayMargaritaCocktail(data)
+                    console.log(data)
+                    displayCocktailList(data)
                 });
             }
         )
         .catch(function (err) {
             console.log("fetch Error :-S", err);
         })
-      
-
 }
 
-getMargarita()
-let margaritaSec = document.getElementById("drink1");
-function displayMargaritaCocktail(cocktail) {
-    margaritaSec.
-    console.log(cocktail.drinks[0].strDrink);
+getCocktail("Arizona Twister");
+getCocktail("Turf Cocktail");
+getCocktail("Apricot Lady");
+getCocktail("Mojito");
+getCocktail("Adam Sunrise");
+getCocktail("Orangeade");
 
-    margaritaSec.innerHTML = "";
+function displayCocktailList(cocktail) {
+    let cocktailDiv = document.createElement("div")
+
+        console.log(cocktail.drinks[0].strDrink);
+
+    cocktailDiv.innerHTML = "";
     console.log(cocktail.drinks[0].strDrink);
 
 
     let drinkName = document.createElement("h2");
     drinkName.innerHTML = cocktail.drinks[0].strDrink;
 
-    margaritaSec.appendChild(drinkName);
-mainWrapper.append(margaritaSec)
+    cocktailDiv.appendChild(drinkName);
+
     let img = document.createElement("img");
     img.src = cocktail.drinks[0].strDrinkThumb;
+    cocktailDiv.appendChild(img)
 
-    margaritaSec.appendChild(img)
-    
-    img.width= "200"
-    img.height= "200"
+    mainWrapper.append(cocktailDiv)
+
+    img.width = "200"
+    img.height = "200"
 }
 
 
-//drink 2 fetch
-function getGG() {
-    fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=GG')
-        .then(
-            function (response) {
-                if (response.status !== 200) {
-                    console.log("Looks like there was a problem. Status Code: " + response.status);
-                    return;
-                }
-
-                response.json().then(function (data) {
-                     console.log(data)
-                    displayGGCocktail(data)
-                });
-            }
-        )
-        .catch(function (err) {
-            console.log("fetch Error :-S", err);
-        })
-      
-
-}
-
-getGG()
-let ggSec = document.getElementById("drink2");
-function displayGGCocktail(cocktail) {
-    ggSec.
-    console.log(cocktail.drinks[0].strDrink);
-
-    ggSec.innerHTML = "";
-    console.log(cocktail.drinks[0].strDrink);
 
 
-    let drinkName = document.createElement("h2");
-    drinkName.innerHTML = cocktail.drinks[0].strDrink;
-
-    ggSec.appendChild(drinkName);
-    
-mainWrapper.append(ggSec)
-    let img = document.createElement("img");
-    img.src = cocktail.drinks[0].strDrinkThumb;
-
-    ggSec.appendChild(img)
-
-    img.width= "200"
-    img.height= "200"
-}
-
-//drink 3 fetch
-function getABC() {
-    fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=ABC')
-        .then(
-            function (response) {
-                if (response.status !== 200) {
-                    console.log("Looks like there was a problem. Status Code: " + response.status);
-                    return;
-                }
-
-                response.json().then(function (data) {
-                     console.log(data)
-                    displayRandomCocktail(data)
-                });
-            }
-        )
-        .catch(function (err) {
-            console.log("fetch Error :-S", err);
-        })
-      
-
-}
-
-getABC()
-
-function displayRandomCocktail(cocktail) {
-    console.log(cocktail.drinks[0].strDrink);
-
-}
-//drink 4 fetch
-function getArizonaTwister() {
-    fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=Arizona Twister')
-        .then(
-            function (response) {
-                if (response.status !== 200) {
-                    console.log("Looks like there was a problem. Status Code: " + response.status);
-                    return;
-                }
-
-                response.json().then(function (data) {
-                     console.log(data)
-                    displayRandomCocktail(data)
-                });
-            }
-        )
-        .catch(function (err) {
-            console.log("fetch Error :-S", err);
-        })
-      
-
-}
-
-getArizonaTwister()
-
-function displayRandomCocktail(cocktail) {
-    console.log(cocktail.drinks[0].strDrink);
-
-}
-
-//drink 5 fetch
-function getTurfCocktail() {
-    fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=Turf Cocktail')
-        .then(
-            function (response) {
-                if (response.status !== 200) {
-                    console.log("Looks like there was a problem. Status Code: " + response.status);
-                    return;
-                }
-
-                response.json().then(function (data) {
-                     console.log(data)
-                    displayRandomCocktail(data)
-                });
-            }
-        )
-        .catch(function (err) {
-            console.log("fetch Error :-S", err);
-        })
-      
-
-}
-
-getTurfCocktail()
-
-function displayRandomCocktail(cocktail) {
-    console.log(cocktail.drinks[0].strDrink);
-
-}
-
-//drink 6 fetch
-function getApricotLady() {
-    fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=Apricot Lady')
-        .then(
-            function (response) {
-                if (response.status !== 200) {
-                    console.log("Looks like there was a problem. Status Code: " + response.status);
-                    return;
-                }
-
-                response.json().then(function (data) {
-                     console.log(data)
-                    displayRandomCocktail(data)
-                });
-            }
-        )
-        .catch(function (err) {
-            console.log("fetch Error :-S", err);
-        })
-      
-
-}
-
-getApricotLady()
-
-function displayRandomCocktail(cocktail) {
-    console.log(cocktail.drinks[0].strDrink);
-
-}
-
-//drink 7 fetch
-
-function getMojito() {
-    fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=Mojito')
-        .then(
-            function (response) {
-                if (response.status !== 200) {
-                    console.log("Looks like there was a problem. Status Code: " + response.status);
-                    return;
-                }
-
-                response.json().then(function (data) {
-                     console.log(data)
-                    displayRandomCocktail(data)
-                });
-            }
-        )
-        .catch(function (err) {
-            console.log("fetch Error :-S", err);
-        })
-      
-
-}
-
-getMojito()
-
-function displayRandomCocktail(cocktail) {
-    console.log(cocktail.drinks[0].strDrink);
-
-}
-
-//drink 8 fetch
-function getAdamSunrise() {
-    fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=Adam Sunrise')
-        .then(
-            function (response) {
-                if (response.status !== 200) {
-                    console.log("Looks like there was a problem. Status Code: " + response.status);
-                    return;
-                }
-
-                response.json().then(function (data) {
-                     console.log(data)
-                    displayRandomCocktail(data)
-                });
-            }
-        )
-        .catch(function (err) {
-            console.log("fetch Error :-S", err);
-        })
-      
-
-}
-
-getAdamSunrise()
-
-function displayRandomCocktail(cocktail) {
-    console.log(cocktail.drinks[0].strDrink);
-
-}
-
-//drink 9 fetch
-function getOrangeade() {
-    fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=Orangeade')
-        .then(
-            function (response) {
-                if (response.status !== 200) {
-                    console.log("Looks like there was a problem. Status Code: " + response.status);
-                    return;
-                }
-
-                response.json().then(function (data) {
-                     console.log(data)
-                    displayRandomCocktail(data)
-                });
-            }
-        )
-        .catch(function (err) {
-            console.log("fetch Error :-S", err);
-        })
-      
-
-}
-
-getOrangeade()
-
-function displayRandomCocktail(cocktail) {
-    console.log(cocktail.drinks[0].strDrink);
-
-}
 
 //fetch för att söka drink
 let search = document.getElementById("search-drink");
 let searchBtn = document.getElementById("drink-search")
 
-function getRandomCocktail(drink) {
-    fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s='+ drink)
+function searchCocktail(drink) {
+    fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + drink)
         .then(
             function (response) {
                 if (response.status !== 200) {
@@ -320,24 +73,23 @@ function getRandomCocktail(drink) {
 
                 response.json().then(function (data) {
                     // console.log(data)
-                    displayRandomCocktail(data)
+                    displaySearchCocktail(data)
                 });
             }
         )
         .catch(function (err) {
             console.log("fetch Error :-S", err);
         })
-        searchBtn.addEventListener("click", ()=>{
+    searchBtn.addEventListener("click", () => {
 
-            getRandomCocktail(search.value)
-        })
-       
+        searchCocktail(search.value)
+    })
+
 }
 
-getRandomCocktail()
-let drinkSection = document.querySelector("#drink-section")
+searchCocktail()
 
-function displayRandomCocktail(cocktail) {
+function displaySearchCocktail(cocktail) {
 
     drinkSection.innerHTML = "";
     console.log(cocktail.drinks[0].strDrink);
@@ -353,14 +105,14 @@ function displayRandomCocktail(cocktail) {
 
     drinkSection.appendChild(img)
 
-    img.width= "200"
-    img.height= "200"
+    img.width = "200"
+    img.height = "200"
 }
 
-/*
+
 //Get random cocktail/*
-let randomBtn = document.getElementById()
-function getMargarita() {
+let randomBtn = document.getElementById("random-btn")
+function getRandomCocktail() {
     fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
         .then(
             function (response) {
@@ -379,13 +131,60 @@ function getMargarita() {
             console.log("fetch Error :-S", err);
         })
       
-
+        
 }
 
-getMargarita()
+randomBtn.addEventListener("click",() => {
+    getRandomCocktail();
+    displayRandomCocktail(cocktail)
+})
+
 
 function displayRandomCocktail(cocktail) {
+    drinkSection.innerHTML = "";
     console.log(cocktail.drinks[0].strDrink);
 
-}*/
 
+    let drinkName = document.createElement("h2");
+    drinkName.innerHTML = cocktail.drinks[0].strDrink;
+
+    drinkSection.appendChild(drinkName);
+
+    let img = document.createElement("img");
+    img.src = cocktail.drinks[0].strDrinkThumb;
+
+    drinkSection.appendChild(img)
+
+    img.width = "200"
+    img.height = "200"
+}
+
+
+
+let displayDiv = document.createElement("div")
+mainWrapper.appendChild(displayDiv)
+
+//////// BYGGA EN NY "SIDA" MED JS NÄR MAN KLICKAR PÅ KNAPPEN DISPLAY RANDOMCOCKTAIL /
+
+function displayRandomCocktail(product) {
+    mainWrapper.innerHTML = "";
+    let main = document.createElement("main");
+  
+    let article = document.createElement("article");
+    article.classList.add("product-detail");
+  
+    let title = document.createElement("h3");
+    let thumbnail = document.createElement("img");
+    let description = document.createElement("p");
+       
+    thumbnail.width = "300";
+    thumbnail.height = "300";
+    description.innerText = product.description;
+    title.innerText = product.title;
+    thumbnail.src = product.thumbnail;
+      
+    article.append(title, thumbnail, description);
+    main.append(article);
+  
+    mainWrapper.append(main);
+  }
