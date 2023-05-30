@@ -103,11 +103,6 @@ background: linear-gradient(to left, #f46b45, #eea849);
 #main-wrapper{
     margin: 20px;
     display: flex;
-    flex-direction: row;
-   
-
-    flex-wrap: wrap;
-    background: linear-gradient(to left, #f46b45, #eea849);
 }
 #drink-section h2, #main-wrapper h2{
     font-weight: bold;

@@ -41,7 +41,7 @@ mainWrapper.append(margaritaSec)
     img.src = cocktail.drinks[0].strDrinkThumb;
 
     margaritaSec.appendChild(img)
-
+    
     img.width= "200"
     img.height= "200"
 }
