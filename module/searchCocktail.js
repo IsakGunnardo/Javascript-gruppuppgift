@@ -30,7 +30,7 @@ export function searchCocktail(drink) {
 }
 
 searchCocktail()
-function displaySearchCocktail(cocktail) {
+export function displaySearchCocktail(cocktail) {
     mainWrapper.innerHTML = "";
     let main = document.createElement("main");
 
@@ -54,7 +54,7 @@ function displaySearchCocktail(cocktail) {
      }
      
      */
-     let ingredient = cocktail.drinks[0]
+     let ingredient = cocktail.drinks[0];
     
     let ingredient1 = document.createElement("div");
     let ingredient2 = document.createElement("div");

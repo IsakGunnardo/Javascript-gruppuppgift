@@ -175,21 +175,41 @@ function displayRandomCocktail(cocktail) {
     mainWrapper.append(main);
 }
 
-   //Hur kan man effektivisera denna koden? så att det inte blir massa kod?
-    // for (let i = 1; i <= 15; i++) {
-    //  let ingridient = cocktail.drinks[0]['strIngridient' + i];
-    //  let measure = cocktail.drinks[0]['strMeasure' + i];
-    //  if (ingridient && measure) {
-    //      let row = document.createElement('div');
-    //      row.classList.add('row' + i);
-    //      mainWrapper.appendChild('row');
+   // function displayCocktail(cocktail) {
+    // mainWrapper.innerHTML = "";
+    // let title = document.createElement('h3');
+    // title.innerHTML = cocktail.drinks[0].strDrink;
+    // mainWrapper.appendChild('title');
 
-    //      let ingridientElement = document.createElement('p');
-    //      ingridientElement.innerHTML = ingridient;
-    //      row.appendChild('ingridientElement');
+    //  let thumbnail = document.createElement('img');
+    //  thumbnail.src = cocktail.drinks[0].strDrinkThumb;
+    //  mainWrapper.appendChild('img');
 
-    //      let measureElement = document.createElement('p');
-    //      measureElement.innerHTML = measure;
-    //      row.appendChild('measureElement');
-    // }
+
+    //  for (let i = 1; i <= 15; i++) {
+    //      let ingridient = cocktail.drinks[0]['strIngridient' + i];
+    //      let measure = cocktail.drinks[0]['strMeasure' + i];
+    //      if (ingridient && measure) {
+    //          let row = document.createElement('div');
+    //          row.classList.add('row' + i);
+    //          mainWrapper.appendChild('row');
+
+    //          let ingridientElement = document.createElement('p');
+    //          ingridientElement.innerHTML = ingridient;
+    //          row.appendChild('ingridientElement');
+
+    //          let measureElement = document.createElement('p');
+    //          measureElement.innerHTML = measure;
+    //          row.appendChild('measureElement');
+    //      }
+    //  }
+    //  
+    //  let description = document.createElement('span');
+    //  description.classList.add('description');
+    //  description.innerHTML = cocktail.drinks[0].strInstructions;
+    //  mainWrapper.appendChild('description');
+
+
     //}
+
+    // displayCocktail();
