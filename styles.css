@@ -6,7 +6,11 @@ h2 {
 
 html, body {
   margin: 0;
-  height: 100%;
+  height: auto;
+  background: linear-gradient(yellow, red);
+  background-repeat: no-repeat;
+
+  
 }
 
 * {
@@ -15,7 +19,7 @@ html, body {
 }
 
 #logo-text{
-    font-size: xx-large;
+    font-size: 1rem;
 }
 
 .top-nav {
@@ -29,6 +33,7 @@ html, body {
   height: 50px;
   padding: 1em;
 }
+
 
 .menu {
   display: flex;
@@ -97,11 +102,19 @@ margin: 20px;
 display: flex;
 flex-direction: row;
 
+
 flex-wrap: wrap;
 background: linear-gradient(to left, #f46b45, #eea849);
 }
+
+.main-home-style{
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
 #main-wrapper{
-    margin: 20px;
+  margin: 5%;
     display: flex;
 }
 #drink-section h2, #main-wrapper h2{
@@ -109,10 +122,28 @@ background: linear-gradient(to left, #f46b45, #eea849);
     font-size: 30px;
     margin: 0;
     background-color: green;
-    width: 200px;
+
 }
 
+.infodrink{
+  display: flex;
+  font-size: 20px;
+  flex-wrap: wrap;
+  width: 400px;
+  background: linear-gradient(to left, #f46b45, #eea849);
 
+
+
+}
+.infodrink span{
+  text-align: end;
+
+  margin-left: auto;
+}
+
+.infodrink p{
+  width: 400px;
+}
 
 
 
