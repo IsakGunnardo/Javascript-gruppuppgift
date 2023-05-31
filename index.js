@@ -29,6 +29,9 @@ getCocktail("Apricot Lady");
 getCocktail("Mojito");
 getCocktail("Adam Sunrise");
 getCocktail("Orangeade");
+getCocktail("Planter’s Punch");
+getCocktail("Rum Sour");
+getCocktail("Arctic Mouthwash");
 
 function displayCocktailList(cocktail) {
     let cocktailDiv = document.createElement("div")
