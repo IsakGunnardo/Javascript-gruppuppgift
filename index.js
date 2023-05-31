@@ -1,6 +1,11 @@
 let mainWrapper = document.getElementById("main-wrapper");
-let drinkSection = document.querySelector("#drink-section")
-
+//let drinkSection = document.querySelector("#drink-section")
+let homeBtn = document.querySelector("#home-btn");
+import { searchCocktail } from "./module/searchCocktail.js";
+import { search } from "./module/searchCocktail.js";
+import { searchBtn } from "./module/searchCocktail.js";
+import { randomBtn } from "./module/randomCocktail.js";
+import { getRandomCocktail } from "./module/randomCocktail.js";
 
 
 function getCocktail(name) {
@@ -22,169 +27,55 @@ function getCocktail(name) {
             console.log("fetch Error :-S", err);
         })
 }
-
-getCocktail("Arizona Twister");
+//Få alla 9 drinkar att synas på startsidan just nu syns bara 1 cocktail
+getCocktail("Foxy Lady");
 getCocktail("Turf Cocktail");
 getCocktail("Apricot Lady");
 getCocktail("Mojito");
 getCocktail("Adam Sunrise");
 getCocktail("Orangeade");
-
-function displayCocktailList(cocktail) {
-    let cocktailDiv = document.createElement("div")
-
-        console.log(cocktail.drinks[0].strDrink);
-
-    cocktailDiv.innerHTML = "";
-    console.log(cocktail.drinks[0].strDrink);
-
-
-    let drinkName = document.createElement("h2");
-    drinkName.innerHTML = cocktail.drinks[0].strDrink;
-
-    cocktailDiv.appendChild(drinkName);
-
-    let img = document.createElement("img");
-    img.src = cocktail.drinks[0].strDrinkThumb;
-    cocktailDiv.appendChild(img)
-
-    mainWrapper.append(cocktailDiv)
-
-    img.width = "200"
-    img.height = "200"
-}
+getCocktail("Gin Fizz")
+getCocktail("Shot-gun")
+getCocktail("Margarita")
 
 
 
+homeBtn.addEventListener("click", () =>{
+    mainWrapper.innerHTML = ""; //yay
+    getCocktail("Foxy Lady");
+    getCocktail("Turf Cocktail");
+    getCocktail("Apricot Lady");
+    getCocktail("Mojito");
+    getCocktail("Adam Sunrise");
+    getCocktail("Orangeade");
+    getCocktail("Gin Fizz")
+    getCocktail("Shot-gun")
+    getCocktail("Margarita")
+    
+    displayCocktailList(cocktail)
 
-
-//fetch för att söka drink
-let search = document.getElementById("search-drink");
-let searchBtn = document.getElementById("drink-search")
-
-function searchCocktail(drink) {
-    fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + drink)
-        .then(
-            function (response) {
-                if (response.status !== 200) {
-                    console.log("Looks like there was a problem. Status Code: " + response.status);
-                    return;
-                }
-
-                response.json().then(function (data) {
-                    // console.log(data)
-                    displaySearchCocktail(data)
-                });
-            }
-        )
-        .catch(function (err) {
-            console.log("fetch Error :-S", err);
-        })
-    searchBtn.addEventListener("click", () => {
-
-        searchCocktail(search.value)
-    })
-
-}
-
-searchCocktail()
-
-function displaySearchCocktail(cocktail) {
-
-    drinkSection.innerHTML = "";
-    console.log(cocktail.drinks[0].strDrink);
-
-
-    let drinkName = document.createElement("h2");
-    drinkName.innerHTML = cocktail.drinks[0].strDrink;
-
-    drinkSection.appendChild(drinkName);
-
-    let img = document.createElement("img");
-    img.src = cocktail.drinks[0].strDrinkThumb;
-
-    drinkSection.appendChild(img)
-
-    img.width = "200"
-    img.height = "200"
-}
-
-
-//Get random cocktail/*
-let randomBtn = document.getElementById("random-btn")
-function getRandomCocktail() {
-    fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
-        .then(
-            function (response) {
-                if (response.status !== 200) {
-                    console.log("Looks like there was a problem. Status Code: " + response.status);
-                    return;
-                }
-
-                response.json().then(function (data) {
-                     console.log(data)
-                    displayRandomCocktail(data)
-                });
-            }
-        )
-        .catch(function (err) {
-            console.log("fetch Error :-S", err);
-        })
-      
-        
-}
-
-randomBtn.addEventListener("click",() => {
-    getRandomCocktail();
-    displayRandomCocktail(cocktail)
 })
 
+function displayCocktailList(cocktail) {
 
-function displayRandomCocktail(cocktail) {
-    drinkSection.innerHTML = "";
-    console.log(cocktail.drinks[0].strDrink);
-
-
-    let drinkName = document.createElement("h2");
-    drinkName.innerHTML = cocktail.drinks[0].strDrink;
-
-    drinkSection.appendChild(drinkName);
-
-    let img = document.createElement("img");
-    img.src = cocktail.drinks[0].strDrinkThumb;
-
-    drinkSection.appendChild(img)
-
-    img.width = "200"
-    img.height = "200"
-}
-
-
-
-let displayDiv = document.createElement("div")
-mainWrapper.appendChild(displayDiv)
-
-//////// BYGGA EN NY "SIDA" MED JS NÄR MAN KLICKAR PÅ KNAPPEN DISPLAY RANDOMCOCKTAIL /
-
-function displayRandomCocktail(product) {
-    mainWrapper.innerHTML = "";
     let main = document.createElement("main");
-  
-    let article = document.createElement("article");
-    article.classList.add("product-detail");
-  
+    main.classList.add("main-home-style")
+    let article = document.createElement("div");
+
+
     let title = document.createElement("h3");
     let thumbnail = document.createElement("img");
-    let description = document.createElement("p");
-       
-    thumbnail.width = "300";
-    thumbnail.height = "300";
-    description.innerText = product.description;
-    title.innerText = product.title;
-    thumbnail.src = product.thumbnail;
-      
-    article.append(title, thumbnail, description);
+
+    let instructions = document.createElement("p")
+    thumbnail.width = "200";
+    thumbnail.height = "200";
+    thumbnail.src = cocktail.drinks[0].strDrinkThumb;
+    instructions.innerHTML = cocktail.drinks[0].strInstructions
+    title.innerHTML = cocktail.drinks[0].strDrink;
+
+    article.append(title, thumbnail, );
     main.append(article);
-  
+
     mainWrapper.append(main);
-  }
+}
+
