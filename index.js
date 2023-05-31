@@ -33,6 +33,10 @@ homeBtn.addEventListener("click", e => {
     getCocktailByName("Margarita")
    
 })
+
+function cleanslate(clearHtml) {
+    clearHtml.innerHTML= "";
+}
 function getCocktailRandom() {
     fetch(urlRandom)
     .then(response => {
@@ -66,9 +70,7 @@ function getCocktailRandom() {
     })
   }
 
-function cleanslate(clearHtml) {
-    clearHtml.innerHTML= "";
-}
+
 
 function HomePageCoctails() {
     cleanslate(container)
@@ -150,3 +152,5 @@ function getACoctail(drink, style) {
         
 }
 
+//ett alternativ kan också vara att dela upp koden över i två funktioner och kalla på den ena funktionen i den andra. 
+//man vill inte alltid ha hela receptet så de kan var aen funktion där man också kallar på den andra funktionen 
