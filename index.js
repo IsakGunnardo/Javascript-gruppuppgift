@@ -49,8 +49,8 @@ function getCocktailRandom() {
     })
     .then(drinks => {
       console.log(drinks);
-      getACoctail(drinks, )
-      coctailRecipe(drinks)
+      getACoctail(drinks)
+      
     })
     .catch(err => {
       console.log(err);

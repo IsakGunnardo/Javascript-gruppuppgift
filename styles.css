@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 body {
-    background-image: url(djungel2.jpg);
+    background-image: url(img/djungel2.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -12,7 +12,7 @@ body {
 }
 .header {
     
-    background-image: url(coctailshome.2.jpg);
+    background-image: url(img/coctailshome.3.jpg);
     width: 100%;
     height: 350px;
     
@@ -21,8 +21,9 @@ body {
     object-fit: cover;
 }
 .webName {
-    font-size: 2 rem;
+    font-size: 3rem;
     color: white;
+    
 }
 .navBar {
     min-height: 70px;
@@ -44,6 +45,11 @@ body {
     color: white;
     text-decoration: none;
     transition: 0.7s ease;
+    font-size: 1.5rem;
+    font-weight: 200;
+    background-color: rgba(28, 217, 28, 0.289);
+    border-radius: 20px;
+    padding: 0 10px;
  } 
  .navLink:hover {
     color: dodgerblue;
