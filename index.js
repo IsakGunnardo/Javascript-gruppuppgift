@@ -96,7 +96,7 @@ function getACoctail(drink) {
 
     let article = document.createElement("article")
     container.append(article)
-     article.style = "background: lightblue;"
+    
     let drinkName = document.createElement("h3")
     drinkName.innerHTML = drink.drinks[0].strDrink;
 
@@ -104,7 +104,7 @@ function getACoctail(drink) {
     img.src = drink.drinks[0].strDrinkThumb;
     
     let drinkRecipe = document.createElement("div")
-      drinkRecipe.style = "background: lightgreen;"
+     
         drinkRecipe.classList.add("drinkRecipe")
 
     article.append(drinkName, img, drinkRecipe)

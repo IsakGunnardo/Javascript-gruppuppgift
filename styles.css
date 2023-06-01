@@ -3,12 +3,26 @@
     margin:0;
     box-sizing: border-box;
 }
-
+body {
+    background-image: url(djungel2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    object-fit: cover;
+}
 .header {
-    background-color: rgb(26, 200, 142);
+    
+    background-image: url(coctailshome.2.jpg);
+    width: 100%;
+    height: 350px;
+    
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    object-fit: cover;
 }
 .webName {
-    font-size: 2 rem;;
+    font-size: 2 rem;
+    color: white;
 }
 .navBar {
     min-height: 70px;
@@ -47,6 +61,23 @@
     transition: all 0.3s ease-in-out;
     background-color: white;
 }
+main {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+ article{
+   text-align: center; 
+   margin-top: 2rem;
+    padding: 20px;
+  
+  background: rgba(255, 255, 255, 0.466);
+  width: 50em;
+  height: 65rem;
+}
+
 @media(max-width:768px) {
     .hamburger {
         display: block;
