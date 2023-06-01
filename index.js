@@ -4,33 +4,35 @@ let randomBtn = document.getElementById("randomBtn");
 let searchBtn = document.getElementById("searchBtn");
 let homeBtn = document.getElementById("homeBtn");
 
+let hamburger = document.querySelector(".hamburger");
+let navMenu = document.querySelector(".navMenu");
+
 let urlRandom = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
 let urlName = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s="
+
+hamburger.addEventListener ("click", e => {
+  hamburger.classList.toggle("active")
+  navMenu.classList.toggle("active")
+})
 
 HomePageCoctails()
 
 searchBtn.addEventListener("click", e => {
     cleanslate(container)
     getCocktailByName(searchInput.value)
+    searchInput.innerHTML = "";
    
 })
 
 randomBtn.addEventListener("click", e => {
     cleanslate(container)
     getCocktailRandom()
+    
    
 })
 homeBtn.addEventListener("click", e => {
-    cleanslate(container)
-    getCocktailByName("Foxy Lady");
-    getCocktailByName("Turf Cocktail");
-    getCocktailByName("Apricot Lady");
-    getCocktailByName("Mojito");
-    getCocktailByName("Planter’s Punch");
-    getCocktailByName("Orangeade");
-    getCocktailByName("Gin Fizz")
-    getCocktailByName("Shot-gun")
-    getCocktailByName("Margarita")
+
+  HomePageCoctails()
    
 })
 
@@ -47,7 +49,8 @@ function getCocktailRandom() {
     })
     .then(drinks => {
       console.log(drinks);
-      getACoctail(drinks)
+      getACoctail(drinks, )
+      coctailRecipe(drinks)
     })
     .catch(err => {
       console.log(err);
@@ -74,6 +77,7 @@ function getCocktailRandom() {
 
 function HomePageCoctails() {
     cleanslate(container)
+    
     getCocktailByName("Foxy Lady");
     getCocktailByName("Turf Cocktail");
     getCocktailByName("Apricot Lady");
@@ -85,9 +89,10 @@ function HomePageCoctails() {
     getCocktailByName("Margarita")
     
 
-}
-function getACoctail(drink, style) {
+    
 
+}
+function getACoctail(drink) {
 
     let article = document.createElement("article")
     container.append(article)
@@ -99,10 +104,11 @@ function getACoctail(drink, style) {
     img.src = drink.drinks[0].strDrinkThumb;
     
     let drinkRecipe = document.createElement("div")
-    drinkRecipe.style = style
-    
+      drinkRecipe.style = "background: lightgreen;"
+        drinkRecipe.classList.add("drinkRecipe")
 
     article.append(drinkName, img, drinkRecipe)
+
 
     let ingredient1 = document.createElement("div")
     ingredient1.innerHTML= drink.drinks[0].strIngredient1
@@ -145,12 +151,7 @@ function getACoctail(drink, style) {
 
      drinkRecipe.append(ingredient1,measure1, ingredient2, measure2, ingredient3, measure3 ,ingredient4, measure4 ,
         ingredient5, measure5 ,ingredient6, measure6 ,ingredient7, measure7 ,ingredient8,measure8, instructions)
-       //har en ide att slippa göra domen för att displaya bara start bilden och namnet på drinken. 
-       //vill istället att man ska kunna välja style dipslay none och flippa mellan display none block när man vill från denna funktion 
-       //provade att sätta parmetern och bara då skirva in none när man vill när man skriver ut funktionen men verkade inte funka 
-        drinkRecipe.style.display = style
+  
         
 }
 
-//ett alternativ kan också vara att dela upp koden över i två funktioner och kalla på den ena funktionen i den andra. 
-//man vill inte alltid ha hela receptet så de kan var aen funktion där man också kallar på den andra funktionen 
