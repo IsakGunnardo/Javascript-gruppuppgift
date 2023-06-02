@@ -1,5 +1,11 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway);
 
+img{
+  box-shadow: 1px 1px 1px 1px;
+}
+img:hover{
+  scale: 1.2;
+}
 h2 {
   vertical-align: center;
   text-align: center;
@@ -108,20 +114,26 @@ body {
 
   flex-wrap: wrap;
   background: linear-gradient(to left, #f46b45, #eea849);
+  
 }
 
-.main-home-style {
+.mainWrapper-style{
+
   display: flex;
-  width: 100px;
-  flex-wrap: wrap;
+  gap: 100px;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-  margin: 20px;
+
+
+
+  
+
 }
+
 
 #main-wrapper {
-  margin: 5%;
+margin: 5%;
   display: flex;
 }
 
@@ -138,8 +150,10 @@ body {
   display: flex;
   font-size: 20px;
   flex-wrap: wrap;
-  width: 400px;
+  width: 500px;
   background: linear-gradient(to left, #f46b45, #eea849);
+  box-shadow: 1px 1px 1px 1px;
+
 
 
 

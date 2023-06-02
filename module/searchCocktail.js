@@ -32,6 +32,7 @@ export function searchCocktail(drink) {
 searchCocktail()
 export function displaySearchCocktail(cocktail) {
     mainWrapper.innerHTML = "";
+    mainWrapper.classList.add("mainWrapper-style")
     let main = document.createElement("main");
 
     let article = document.createElement("article");
@@ -106,8 +107,9 @@ export function displaySearchCocktail(cocktail) {
     instructions.classList.add("infodrink");
 
 
-    thumbnail.width = "400";
-    thumbnail.height = "400";
+    thumbnail.width = "500";
+    thumbnail.height = "500";
+    thumbnail.style.boxShadow = "1px 1px"
     thumbnail.src = cocktail.drinks[0].strDrinkThumb;
     instructions.innerHTML = cocktail.drinks[0].strInstructions
     title.innerHTML = cocktail.drinks[0].strDrink;

@@ -28,7 +28,7 @@ export function getRandomCocktail() {
 
 randomBtn.addEventListener("click", () => {
     getRandomCocktail();
-    displayRandomCocktail(cocktail)
+    displayRandomCocktail(data)
 })
 
 
@@ -109,8 +109,8 @@ function displayRandomCocktail(cocktail) {
     instructions.classList.add("infodrink");
 
 
-    thumbnail.width = "400";
-    thumbnail.height = "400";
+    thumbnail.width = "500";
+    thumbnail.height = "500";
     thumbnail.src = cocktail.drinks[0].strDrinkThumb;
     instructions.innerHTML = cocktail.drinks[0].strInstructions
 
