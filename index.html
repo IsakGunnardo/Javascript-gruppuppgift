@@ -3,35 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <link rel="stylesheet" href="styles.css">
-    <title>Drink</title>
 </head>
 <body>
-    <header class="top-nav">
-            <input id="menu-toggle" type="checkbox" />
-            <label class='menu-button-container' for="menu-toggle">
-            <div class='menu-button'></div>
-          </label>
-            <ul class="menu">
-              <li><button id="home-btn">Home</button></li>
-              <li><button id="random-btn">Get Random Cocktail</button></li>
-              <li><Button id="cocktailamount">A</Button></li>
-            </ul>
-            <div id="logo-text">
-                &#127881;  Cocktails 4 Programmers &#127881;
-            </div>
-            <div id="search-sec">
-               <input type="search" name="search-drink" id="search-drink" placeholder="Sök på en drink...">
-               <button type="submit" id="drink-search">Sök</button>
-             </div>
-    </header>
-    <div id="drink-section"></div>
-
-    <div id="main-wrapper">
-
-    </div>
-    <script type="module" src="index.js"></script>
-
+   <header class="header">
+    <nav class="navBar">
+        <h1 class="webName">Coctails for developers</h1>
+        <ul class="navMenu">
+            <li class="navItem">
+                <a href="" class="navLink" id="homeBtn">Home</a>
+            </li>
+            <li class="navItem">
+                <a href="" class="navLink">search Coctails</a>
+            </li>
+            <li class="navItem">
+                <a href="" class="navLink" > Get a random Coctail</a>
+            </li>
+            <li class="navItem">
+                <a href="" class="navLink"> About us</a>
+            </li>
+            <li class="navItem">
+                <a href="" class="navLink"> Contact</a>
+            </li>
+        </ul>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+    <button id="randomBtn">get random cocktail</button>
+    <form action="" id="serchForm"></form>
+    <input type="text" id="searchCoctail" placeholder="Mojito...ore Martini">
+    <button id="searchBtn" >search</button>
+    
+   </header>
+   <main id="container"></main>
+    <script src="index.js"></script>
 </body>
 </html>

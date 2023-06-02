@@ -1,105 +1,126 @@
-let mainWrapper = document.getElementById("main-wrapper");
-//let drinkSection = document.querySelector("#drink-section")
-let homeBtn = document.querySelector("#home-btn");
-import { searchCocktail } from "./module/searchCocktail.js";
-import { search } from "./module/searchCocktail.js";
-import { searchBtn } from "./module/searchCocktail.js";
-import { randomBtn } from "./module/randomCocktail.js";
-import { getRandomCocktail } from "./module/randomCocktail.js";
+const container = document.getElementById("container");
+const searchInput = document.getElementById("searchCoctail");
+const randomBtn = document.getElementById("randomBtn");
+const searchBtn = document.getElementById("searchBtn");
+const homeBtn = document.getElementById("homeBtn");
 
+const hamburger = document.querySelector(".hamburger");
+const navMenu = document.querySelector(".navMenu");
 
-function getCocktail(name) {
-    fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + name)
-        .then(
-            function (response) {
-                if (response.status !== 200) {
-                    console.log("Looks like there was a problem. Status Code: " + response.status);
-                    return;
-                }
+const urlRandom = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
+const urlName = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s="
 
-                response.json().then(function (data) {
-                    console.log(data)
-                    displayCocktailList(data)
-                });
-            }
-        )
-        .catch(function (err) {
-            console.log("fetch Error :-S", err);
-        })
-}
-//Få alla 9 drinkar att synas på startsidan just nu syns bara 1 cocktail
-getCocktail("Foxy Lady");
-getCocktail("Turf Cocktail");
-getCocktail("Apricot Lady");
-getCocktail("Mojito");
-getCocktail("Adam Sunrise");
-getCocktail("Orangeade");
-getCocktail("Planter’s Punch");
-getCocktail("Rum Sour");
-getCocktail("Arctic Mouthwash");
-
-function displayCocktailList(cocktail) {
-    let cocktailDiv = document.createElement("div")
-
-        console.log(cocktail.drinks[0].strDrink);
-
-    cocktailDiv.innerHTML = "";
-    console.log(cocktail.drinks[0].strDrink);
-
-
-    let drinkName = document.createElement("h2");
-    drinkName.innerHTML = cocktail.drinks[0].strDrink;
-
-    cocktailDiv.appendChild(drinkName);
-
-    let img = document.createElement("img");
-    img.src = cocktail.drinks[0].strDrinkThumb;
-    cocktailDiv.appendChild(img)
-
-    mainWrapper.append(cocktailDiv)
-
-    img.width = "200"
-    img.height = "200"
-}
-
-
-
-homeBtn.addEventListener("click", () =>{
-    mainWrapper.innerHTML = ""; //yay
-    getCocktail("Foxy Lady");
-    getCocktail("Turf Cocktail");
-    getCocktail("Apricot Lady");
-    getCocktail("Mojito");
-    getCocktail("Adam Sunrise");
-    getCocktail("Orangeade");
-    getCocktail("Gin Fizz")
-    getCocktail("Shot-gun")
-    getCocktail("Margarita")
-    
-    displayCocktailList(cocktail)
-
+hamburger.addEventListener ("click", e => {
+  hamburger.classList.toggle("active")
+  navMenu.classList.toggle("active")
 })
 
-function displayCocktailList(cocktail) {
+HomePageCoctails()
 
-    let main = document.createElement("main");
-    main.classList.add("main-home-style")
-    let article = document.createElement("div");
+////// EVENTS ////////
 
+searchBtn.addEventListener("click", e => {
+    cleanslate(container)
+    getCocktailByName(searchInput.value)
+    searchInput.innerHTML = "";   
+})
 
-    let title = document.createElement("h3");
-    let thumbnail = document.createElement("img");
+randomBtn.addEventListener("click", e => {
+    cleanslate(container)
+    getCocktailRandom()    
+})
+homeBtn.addEventListener("click", e => {
+  HomePageCoctails()   
+})
 
-    let instructions = document.createElement("p")
-    thumbnail.width = "200";
-    thumbnail.height = "200";
-    thumbnail.src = cocktail.drinks[0].strDrinkThumb;
-    instructions.innerHTML = cocktail.drinks[0].strInstructions
-    title.innerHTML = cocktail.drinks[0].strDrink;
+///////// FUNCTIONS /////////
 
-    article.append(title, thumbnail, );
-    main.append(article);
+function cleanslate(clearHtml) {
+    clearHtml.innerHTML= "";
+}
+function getCocktailRandom() {
+    fetch(urlRandom)
+    .then(response => {
+      if (response.status !== 200) {
+        alert ("error")
+      }
+      return response.json()
+    })
+    .then(drinks => {
+        
+      getACoctail(drinks)
+      
+    })
+    .catch(err => {
+      console.log(err);
+    })
+  }
 
-    mainWrapper.append(main);
+  function getCocktailByName(namn) {
+    fetch(urlName + namn)
+    .then(response => {
+      if (response.status !== 200) {
+        alert ("error")
+      }
+      return response.json()
+    })
+    .then(drink => {
+      getACoctail(drink)
+    })
+    .catch(err => {
+      console.log(err);
+    })
+  }
+
+function HomePageCoctails() {
+    cleanslate(container)
+    
+    getCocktailByName("Foxy Lady");
+    getCocktailByName("Turf Cocktail");
+    getCocktailByName("Apricot Lady");
+    getCocktailByName("Mojito");
+    getCocktailByName("Planter’s Punch");
+    getCocktailByName("Orangeade");
+    getCocktailByName("Gin Fizz")
+    getCocktailByName("Shot-gun")
+    getCocktailByName("Margarita")
 }
 
+function getACoctail(drink) {
+
+    let article = document.createElement("article")
+    container.append(article)
+    
+    let drinkName = document.createElement("h3")
+    drinkName.innerHTML = drink.drinks[0].strDrink;
+
+    let img = document.createElement("img");
+    img.src = drink.drinks[0].strDrinkThumb;
+    
+    let drinkRecipe = document.createElement("div")     
+        drinkRecipe.classList.add("drinkRecipe")
+
+    article.append(drinkName, img, drinkRecipe)  
+
+ for (let i = 1; i <= 15; i++) {
+          let ingredient = drink.drinks[0]['strIngredient' + i];
+          let measure = drink.drinks[0]['strMeasure' + i];
+          if (ingredient && measure) {
+            let row = document.createElement('div');
+             row.classList.add('row' + i);
+             drinkRecipe.appendChild(row);
+
+            let ingredientElement = document.createElement("p");
+            ingredientElement.innerHTML = ingredient;
+            drinkRecipe.appendChild(ingredientElement);
+
+            let measureElement = document.createElement("p");
+             measureElement.innerHTML = measure;
+            drinkRecipe.appendChild(measureElement);     
+  } 
+ 
+}         
+   let instructions = document.createElement("div")
+    instructions.innerHTML= drink.drinks[0].strInstructions
+    drinkRecipe.appendChild(instructions);
+}  
