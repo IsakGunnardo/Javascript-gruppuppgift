@@ -12,7 +12,9 @@ let aboutModal = document.getElementById("about-us-div");
 let aboutUsBtn = document.getElementById("aboutUs");
 let contactModal = document.getElementById("contact-div");
 let contactBtn = document.getElementById("contact");
-let closespan = document.getElementById("close");
+let closeAboutUs = document.getElementById("closeaboutus");
+let closeContact = document.getElementById("closecontact");
+
 
 // Skapar scroll funktionen
 let scrollBtn = document.getElementById("scrollBtn");
@@ -296,7 +298,7 @@ aboutUsBtn.addEventListener("click", e =>{
   aboutModal.style.display = "block"
 });
 
-closespan.addEventListener("click", e =>{
+closeAboutUs.addEventListener("click", e =>{
   aboutModal.style.display = "none"
 })
 
@@ -309,15 +311,12 @@ window.addEventListener("click", e =>{
     contactModal.style.display = "block"
   });
 
-  closespan.addEventListener("click", e =>{
+  closeContact.addEventListener("click", e =>{
     contactModal.style.display = "none"
 
   });
 
-  window.addEventListener("click", e =>{
-    if(e.target == contactModal){
-      contactModal.style.display = "none"
-    }});
+ 
 
 
 

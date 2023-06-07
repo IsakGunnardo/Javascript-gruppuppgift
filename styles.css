@@ -97,8 +97,10 @@ body {
 }
 
 /*Modal About-us, Contact*/
+
 #about-us-div, #contact-div{
     display: none;
+
     position: fixed;
     z-index: 5;
     padding-top: 100px;
@@ -133,15 +135,18 @@ fieldset{
     width: 50%;
 }
 
-.close{
+#closeaboutus, #closecontact{
     float: right;
     color: black;
     font-size: 28px;
     font-weight: bold;
 }
 
-.close:hover,
-.close:focus{
+#closeaboutus:hover,
+#closeaboutus:focus,
+#closecontact:hover,
+#closecontact:focus
+{
     color: red;
     text-decoration: none;
     cursor: pointer;
