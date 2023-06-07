@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-image: url(img/djungel2.jpg);
     
@@ -12,12 +16,17 @@ body {
     background-attachment: fixed;
     object-fit: cover;
 }
+:root{
+--linkbackground: rgba(28, 217, 28, 0.629);
+--searchfieldcolor:  rgba(28, 217, 28, 0.629);
+--hovercolor:  rgb(151, 190, 229);
+}
 
 /* navigation bar*/
 .header {
     background-image: url(img/coctailshome.3.jpg);  
     width: 100%;
-    height: 350px;
+    height: 300px;
     opacity: 0.85;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -60,14 +69,14 @@ body {
     transition: 0.7s ease;
     font-size: 1.5rem;
     font-weight: 200;
-    background-color: rgba(28, 217, 28, 0.392);
+    background-color: var(--linkbackground);
     border-radius: 20px;
     padding: 0 10px;
     
 } 
 
 .navLink:hover {
-    color: rgb(151, 190, 229);
+    color: var(--hovercolor);
   
 }
 
@@ -87,6 +96,80 @@ body {
     background-color: white;
 }
 
+/*Modal About-us, Contact*/
+#about-us-div, #contact-div{
+    display: none;
+    position: fixed;
+    z-index: 5;
+    padding-top: 100px;
+    left: 0;
+    text-align: center;
+    top: 0px;
+    bottom: 0;;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(grey, 0.629);
+    background-color: rgba(97, 138, 103, 0.4);
+
+
+
+}
+ul{
+    text-align: start;
+}
+li{
+    list-style: none;
+}
+fieldset{
+    width: 100%;
+    text-align: center;
+
+}
+.about-us-class, .contact-class{
+    background-color: rgba(56, 153, 56, 0.6);
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid black;
+    width: 50%;
+}
+
+.close{
+    float: right;
+    color: black;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus{
+    color: red;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+form {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+}
+input {
+    font-size: 1em;
+    color: white;
+    width: 300px;
+    background-color:var(--searchfieldcolor);
+    border-radius: 20px;
+    padding: 5px 10px;
+    border: 0;
+}
+.drinkBtn{
+    font-size: 1em;
+    color: white;
+    width: 100px;
+    background-color: var(--searchfieldcolor);
+    border-radius: 20px;
+    padding: 5px 10px;
+    border: 0;
+}
 /* main style drinks*/
 main {
     display: flex;
@@ -111,10 +194,7 @@ article {
     max-height: 70rem; 
 }
 
-.homePageArticle {
-  
-    
-}
+
 
 .homePageImg{
    min-width: 250px;
@@ -125,7 +205,7 @@ article {
 }
 
 /* media */
-@media(max-width:768px) {
+@media(max-width: 1502px) {
 
     .hamburger {
         display: block;
@@ -149,7 +229,7 @@ article {
         top: 70px;
         gap: 0;
         flex-direction: column;
-        background-color: rgb(26, 200, 142);
+        background-color: var(--linkbackground);
         width: 100%;
         text-align: center;
         transition: 0.3s;
@@ -169,3 +249,18 @@ article {
   text-align: center;
 }
 */
+
+.scrollbutton {
+    font-size: 100px;
+    position: fixed; 
+    right: 20px;
+    bottom: 20px;
+    z-index: 9999;
+    transition: transform 0.3s ease-in-out;  
+    color: lime; 
+    
+}
+
+.scrollbutton:hover {
+    transform: scale(1.4);
+}
