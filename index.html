@@ -12,7 +12,7 @@
 <header class="header" id="header">
 
      <nav class="navBar">
-         <h1 class="webName">Cocktails for developers</h1>
+         <h1 class="webName"><img class="logo" src="/img/microsoftTeams-image.png" alt="Logo"></h1>
          <ul class="navMenu">
              <li class="navItem">
                  <a href="" class="navLink" id="homeBtn">Home</a>
@@ -42,31 +42,41 @@
          </div>
 
      </nav>
-
+     <form action="" id="form">
+     </form>
 </header>
 <div id="about-us-div" class="hidden">
     <div class="about-us-class">
         <span id="closeaboutus">&times;</span>
         <h3>About us</h3>
-        <p>Is created by studygroup 7 from ECutb Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic quaerat ab necessitatibus rem, repudiandae non vel consectetur at fugit sunt adipisci deserunt facere veniam nobis excepturi deleniti sapiente atque aliquid perspiciatis corporis. Ducimus quam ipsam illum, culpa consequuntur voluptatum harum libero quod qui excepturi voluptas pariatur inventore sunt dolor magni.</p>
+        <form id="modalForm" action="">
+            <label for="">Sign up now to get a new drink proposal every week </label>
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" placeholder="Name goes here">
+            <label for="email">Email:</label>
+            <input type="email" placeholder="Email goes here">
+            <button type="submit">Submit</button>
+        </form>
+        <p>We are students of Ec-Utb and are creating this webbsite for a schoolproject</p>
+
     </div>
  </div>
 
  <div id="contact-div" class="hidden">
     <div class="contact-class">
         <span id="closecontact">&times;</span>
-        <fieldset>
+
         <h3>Contact</h3>
-        <ul>
-            <li>Phone: +46123456789</li>
-            <li>Email:<a href="https://outlook.live.com/mail/0/"> Cocktaildrink@drinks.com</a></li>
-            <br>
+        <ul class="modalUL">
+            <li class="modalLI">Phone: +46123456789</li>
+            <li class="modalLI">Email:<a href="https://outlook.live.com/mail/0/"> Cocktaildrink@drinks.com</a></li>
+            
             <h4>Drinking to much?</h4>
-            <li>Visit:<a href="https://alcoholics-anonymous.eu/meetings/?tsml-region=sweden">Alcoholics-anonymous</a></li>
-            <li>Phone: +46 800 9177 650</li>
+            <li class="modalLI">Visit:<a href="https://alcoholics-anonymous.eu/meetings/?tsml-region=sweden">Alcoholics-anonymous</a></li>
+            <li class="modalLI">Phone: +46 800 9177 650</li>
         </ul>
         <p>Text</p>
-    </fieldset>
+
     </div>
  </div>
  <!--

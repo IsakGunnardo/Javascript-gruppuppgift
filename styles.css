@@ -1,6 +1,6 @@
 * {
     padding: 0;
-    margin:0;
+    margin: 0;
     box-sizing: border-box;
 }
 
@@ -10,27 +10,37 @@ html {
 
 body {
     background-image: url(img/djungel2.jpg);
-    
+
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     object-fit: cover;
 }
-:root{
---linkbackground: rgba(28, 217, 28, 0.629);
---searchfieldcolor:  rgba(28, 217, 28, 0.629);
---hovercolor:  rgb(151, 190, 229);
+
+:root {
+    --linkbackground: rgba(28, 217, 28, 0.629);
+    --searchfieldcolor: rgba(28, 217, 28, 0.956);
+    --hovercolor: rgb(151, 190, 229);
+    --modalcolor: rgba(28, 217, 28, 0.8)
 }
 
 /* navigation bar*/
 .header {
-    background-image: url(img/coctailshome.3.jpg);  
+    background-image: url(img/coctailshome.3.jpg);
     width: 100%;
     height: 300px;
     opacity: 0.85;
     background-repeat: no-repeat;
     background-attachment: fixed;
     object-fit: cover;
+}
+
+.logo {
+    margin: 15px;
+    width: 50%;
+    height: auto;
+    border-radius: 100%;
+
 }
 
 .webName {
@@ -51,7 +61,7 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    gap:60px;
+    gap: 60px;
 }
 
 .navItem {
@@ -72,12 +82,12 @@ body {
     background-color: var(--linkbackground);
     border-radius: 20px;
     padding: 0 10px;
-    
-} 
+
+}
 
 .navLink:hover {
     color: var(--hovercolor);
-  
+
 }
 
 /* hamburger menyn*/
@@ -96,9 +106,22 @@ body {
     background-color: white;
 }
 
+.drinkRecipe {
+    font-size: 20px;
+
+
+
+}
+
+
+
+
+
+
 /*Modal About-us, Contact*/
 
-#about-us-div, #contact-div{
+#about-us-div,
+#contact-div {
     display: none;
 
     position: fixed;
@@ -107,35 +130,59 @@ body {
     left: 0;
     text-align: center;
     top: 0px;
-    bottom: 0;;
+    bottom: 0;
+    ;
     width: 100%;
     height: 100%;
-    background-color: rgba(grey, 0.629);
+    background-color: var(--modalcolor);
     background-color: rgba(97, 138, 103, 0.4);
 
 
 
-}
-ul{
-    text-align: start;
-}
-li{
-    list-style: none;
-}
-fieldset{
-    width: 100%;
-    text-align: center;
 
 }
-.about-us-class, .contact-class{
-    background-color: rgba(56, 153, 56, 0.6);
+
+.modalUL {
+    display: flex;
+    flex-direction: column;
+
+    font-size: 20px;
+    margin-top: 40px;
+    margin: 10px;
+    margin-left: 35%;
+    text-align: start;
+}
+
+.modalLI {
+    list-style: none;
+    font-weight: bold;
+    ;
+}
+
+.modalLI>a {
+    color: black
+}
+
+.modalfieldset {
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    color: black;
+
+}
+
+.about-us-class,
+.contact-class {
+    background-color: var(--modalcolor);
     margin: 15% auto;
     padding: 20px;
     border: 1px solid black;
     width: 50%;
+    height: 50%;
 }
 
-#closeaboutus, #closecontact{
+#closeaboutus,
+#closecontact {
     float: right;
     color: black;
     font-size: 28px;
@@ -145,28 +192,47 @@ fieldset{
 #closeaboutus:hover,
 #closeaboutus:focus,
 #closecontact:hover,
-#closecontact:focus
-{
+#closecontact:focus {
     color: red;
     text-decoration: none;
     cursor: pointer;
 }
 
+#letterFieldset {
+    width: 100%;
+    text-align: end;
+}
+
+#modalForm {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
 form {
+
+    margin-left: 35%;
     display: flex;
     gap: 30px;
-    margin-top: 20px;
+    margin-bottom: 600px;
+    border-radius: 5px 5px 5px 10px;
 }
+
 input {
+
     font-size: 1em;
-    color: white;
+    color: black;
     width: 300px;
-    background-color:var(--searchfieldcolor);
+    background-color: var(--searchfieldcolor);
     border-radius: 20px;
     padding: 5px 10px;
     border: 0;
 }
-.drinkBtn{
+
+.drinkBtn {
+
     font-size: 1em;
     color: white;
     width: 100px;
@@ -175,37 +241,51 @@ input {
     padding: 5px 10px;
     border: 0;
 }
+
+.drinkBtn2 {
+    display: none;
+
+}
+
 /* main style drinks*/
 main {
     display: flex;
     flex-wrap: wrap;
+
     margin-left: 5%;
     margin-right: 5%;
     text-align: center;
     align-items: center;
     justify-content: center;
     gap: 20px;
-    
-    
+
+
+}
+
+#container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 30px;
 }
 
 article {
-    text-align: center; 
+    text-align: center;
     margin-top: 2rem;
     padding: 20px 40px 40px 40px;
-    
+
     background: rgba(255, 255, 255, 0.466);
     max-width: 50em;
-    max-height: 70rem; 
+    max-height: 70rem;
 }
 
 
 
-.homePageImg{
-   min-width: 250px;
-   min-height: 250px;
-   max-width: 400px;
-   max-height: 400px;
+.homePageImg {
+    min-width: 250px;
+    min-height: 250px;
+    max-width: 400px;
+    max-height: 400px;
 
 }
 
@@ -249,23 +329,60 @@ article {
     }
 
 }
+
 /*
 .Search-input {
   text-align: center;
 }
 */
 
+.drinkBtn2 {
+    display: block;
+
+}
+
 .scrollbutton {
     font-size: 100px;
-    position: fixed; 
+    position: fixed;
     right: 20px;
     bottom: 20px;
     z-index: 9999;
-    transition: transform 0.3s ease-in-out;  
-    color: lime; 
-    
+    transition: transform 0.3s ease-in-out;
+    color: rgba(28, 217, 28, 0.629);
+
 }
 
 .scrollbutton:hover {
     transform: scale(1.4);
 }
+
+.homePageDrinks {
+    border-radius: 8px;
+}
+
+.webName:hover {
+  animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+@keyframes shake {
+    10%,
+    90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+    20%,
+    80% {
+      transform: translate3d(2px, 0, 0);
+    }
+    30%,
+    50%,
+    70% {
+      transform: translate3d(-4px, 0, 0);
+    }
+    40%,
+    60% {
+      transform: translate3d(4px, 0, 0);
+    }
+  }
