@@ -1,8 +1,5 @@
-    har en ide att slippa göra domen för att displaya bara start bilden och namnet på drinken. 
-    vill istället att man ska kunna välja style dipslay none och flippa mellan display none block när man vill från denna funktion 
-    provade att sätta parmetern och bara då skirva in none när man vill när man skriver ut funktionen men verkade inte funka 
-    
-ett alternativ kan också vara att dela upp koden över i två funktioner och kalla på den ena funktionen i den andra. 
-man vill inte alltid ha hela receptet så de kan var aen funktion där man också kallar på den andra funktionen 
+kvar att göra: 
 
-man ska på något sätt kunna använda sig av :visible för att göra element synliga/dolda.
+få alla länkar att hamna högst upp i headern.
+få sök rutan att placers i headern ingen. 
+få receptet att se mer lät last ut. dvs igredienser och måtten behöver lite space mellan sig och wisky: 2 cl

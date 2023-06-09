@@ -43,12 +43,6 @@ body {
 
 }
 
-.webName {
-    font-size: 3rem;
-    color: white;
-
-}
-
 .navBar {
     min-height: 70px;
     display: flex;
@@ -66,6 +60,7 @@ body {
 
 .navItem {
     list-style: none;
+    
 }
 
 .navItem:hover {
@@ -105,19 +100,41 @@ body {
     transition: all 0.3s ease-in-out;
     background-color: white;
 }
+/*serch form */
+form {
+    display: flex;
+    margin-left: 35%;
+    gap: 30px;
+    border-radius: 5px 5px 5px 10px;
+}
 
+input {
+
+    font-size: 1em;
+    color: black;
+    width: 300px;
+    background-color: var(--searchfieldcolor);
+    border-radius: 20px;
+    padding: 5px 10px;
+    border: 0;
+}
+
+.drinkBtn {
+
+    font-size: 1em;
+    color: white;
+    width: 100px;
+    background-color: var(--searchfieldcolor);
+    border-radius: 20px;
+    padding: 5px 10px;
+    border: 0;
+}
 .drinkRecipe {
     font-size: 20px;
 
 
 
 }
-
-
-
-
-
-
 /*Modal About-us, Contact*/
 
 #about-us-div,
@@ -211,37 +228,7 @@ body {
     align-items: center;
 }
 
-form {
-
-    margin-left: 35%;
-    display: flex;
-    gap: 30px;
-    margin-bottom: 600px;
-    border-radius: 5px 5px 5px 10px;
-}
-
-input {
-
-    font-size: 1em;
-    color: black;
-    width: 300px;
-    background-color: var(--searchfieldcolor);
-    border-radius: 20px;
-    padding: 5px 10px;
-    border: 0;
-}
-
-.drinkBtn {
-
-    font-size: 1em;
-    color: white;
-    width: 100px;
-    background-color: var(--searchfieldcolor);
-    border-radius: 20px;
-    padding: 5px 10px;
-    border: 0;
-}
-
+/*drinkBtn2 is a random coctail btn*/
 .drinkBtn2 {
     display: none;
 
@@ -276,7 +263,7 @@ article {
 
     background: rgba(255, 255, 255, 0.466);
     max-width: 50em;
-    max-height: 70rem;
+   
 }
 
 

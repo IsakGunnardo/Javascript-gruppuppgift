@@ -56,6 +56,19 @@ document.querySelectorAll(".navLink").forEach(n => n.addEventListener("click", (
 
 
 //////// EVENT SEARCH BUTTON ////////
+//let logo = ;
+
+document.querySelector(".logo").addEventListener(("click"), e => {
+  cleanSlate(container)
+  HomePageCoctails()
+});
+
+homeBtn.addEventListener("click", e => {
+  cleanSlate(form)
+  cleanSlate(container)
+  HomePageCoctails()
+
+})
 
 searchBtn.addEventListener("click", e => {
   e.preventDefault()
@@ -78,11 +91,7 @@ randomBtn.addEventListener("click", e => {
   
 
 })
-homeBtn.addEventListener("click", e => {
-  cleanSlate(form)
-  HomePageCoctails()
 
-})
 
 //////// FUNCTION FOR A RANDOM DRINK. CLEARS AND CREATES ////////
 
@@ -249,18 +258,19 @@ function getACoctail(drink) {
       drinkRecipe.appendChild(row);
 
       let ingredientElement = document.createElement("span");
-      ingredientElement.innerHTML = ingredient;
+      ingredientElement.innerHTML = "<br>" + ingredient;
+      ingredientElement.style= "text-decoration: underline; font-size: 22px;"
       drinkRecipe.appendChild(ingredientElement);
 
       let measureElement = document.createElement("span");
-      measureElement.innerHTML = measure;
+      measureElement.innerHTML =  ":  " + measure;
       drinkRecipe.appendChild(measureElement);
-
+      
     }
 
   }
   let instructions = document.createElement("div")
-  instructions.innerHTML = drink.drinks[0].strInstructions
+  instructions.innerHTML = "<br> <br>" + drink.drinks[0].strInstructions + "<br>"
   drinkRecipe.appendChild(instructions);
 }
 
