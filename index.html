@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cocktails For Developers</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="/img/MicrosoftTeams-image.png">
 </head>
 <body>
 
@@ -42,56 +43,53 @@
          </div>
 
      </nav>
-     <form action="" id="form">
-     </form>
+
+     <form action="" id="search-form" class="search-form"> </form>
+
 </header>
+
 <div id="about-us-div" class="hidden">
+
     <div class="about-us-class">
         <span id="closeaboutus">&times;</span>
         <h3>About us</h3>
         <form id="modalForm" action="">
-            <label for="">Sign up now to get a new drink proposal every week </label>
+            <label id="signUp" for="">Sign up now to get a new drink proposal every week </label>
             <label for="name">Name:</label>
             <input type="text" name="name" id="name" placeholder="Name goes here">
             <label for="email">Email:</label>
             <input type="email" placeholder="Email goes here">
             <button type="submit">Submit</button>
         </form>
-        <p>We are students of Ec-Utb and are creating this webbsite for a schoolproject</p>
+        <p>We are students of Ec-Utb and are creating this webbsite for a schoolproject.
+            <br>
+            fetch used from <a href="https://www.thecocktaildb.com/">thecocktaildb.com</a>
 
+        </p>
     </div>
- </div>
 
- <div id="contact-div" class="hidden">
-    <div class="contact-class">
-        <span id="closecontact">&times;</span>
-
-        <h3>Contact</h3>
-        <ul class="modalUL">
-            <li class="modalLI">Phone: +46123456789</li>
-            <li class="modalLI">Email:<a href="https://outlook.live.com/mail/0/"> Cocktaildrink@drinks.com</a></li>
-            
-            <h4>Drinking to much?</h4>
-            <li class="modalLI">Visit:<a href="https://alcoholics-anonymous.eu/meetings/?tsml-region=sweden">Alcoholics-anonymous</a></li>
-            <li class="modalLI">Phone: +46 800 9177 650</li>
-        </ul>
-        <p>Text</p>
-
-    </div>
- </div>
- <!--
-<div>
-    <li class="Search-input">
-    <a id="searchBtn" class="navLink"> Search Cocktails </a>
-    <input type="text" id="searchCocktail" placeholder="Mojito...ore Martini">
-    </li>
 </div>
--->
+
+<div id="contact-div" class="hidden">
+   <div class="contact-class">
+       <span id="closecontact">&times;</span>
+       <h3>Contact</h3>
+       <div class="modalDIV">
+           <label class="modalLabel">Phone: +46123456789</li>
+            <br>
+           <label class="modalLabel">Email:<a href="https://outlook.live.com/mail/0/"> Cocktaildrink@drinks.com</a></li>
+           <br>
+           <br>
+           <h4>Drinking to much?</h4>
+           <label class="modalLabel">Visit:<a href="https://alcoholics-anonymous.eu/meetings/?tsml-region=sweden">Alcoholics-anonymous</a></li>
+            <br>
+           <label class="modalLabel">Phone: +46 800 9177 650</li>
+           </div>
+   </div>
+</div>
 
 <main id="container">
- <div id="cocktailDiv">
-
- </div>
+    <div id="cocktailDiv"> </div>
 </main>
  
 <script src="index.js"></script>

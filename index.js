@@ -8,8 +8,8 @@ const homeBtn = document.getElementById("homeBtn");
 const aboutUs = document.getElementById("aboutUs");
 const contact = document.getElementById("contact");
 const cocktailDiv = document.getElementById("cocktailDiv");
-const form = document.getElementById("form");
-var x = window.matchMedia("(max-width: 1500px)")
+const form = document.getElementById("search-form");
+const x = window.matchMedia("(max-width: 1500px)")
 
 ////////  VARIABLER FOR MODAL   ////////
 
@@ -48,18 +48,50 @@ hamburger.addEventListener("click", e => {
   hamburger.classList.toggle("active")
   navMenu.classList.toggle("active")
 })
-
+//////// CLOSE LINKS ////////
 document.querySelectorAll(".navLink").forEach(n => n.addEventListener("click", () => {
   hamburger.classList.remove("active")
   navMenu.classList.remove("active")
 }))
 
+////////         MODAL EVENTS.              ////////
+
+aboutUsBtn.addEventListener("click", e => {
+  aboutModal.style.display = "block"
+});
+
+closeAboutUs.addEventListener("click", e => {
+  aboutModal.style.display = "none"
+})
+
+window.addEventListener("click", e => {
+  if (e.target == aboutModal) {
+    aboutModal.style.display = "none"
+  }
+});
+
+contactBtn.addEventListener("click", e => {
+  contactModal.style.display = "block"
+});
+
+closeContact.addEventListener("click", e => {
+  contactModal.style.display = "none"
+
+});
+
+window.addEventListener("click", e => {
+  if (e.target == contactModal) {
+    contactModal.style.display = "none"
+  }
+});
+
+
 
 //////// EVENT SEARCH BUTTON ////////
-//let logo = ;
-
+//////// home button        ////////
 document.querySelector(".logo").addEventListener(("click"), e => {
   cleanSlate(container)
+  cleanSlate(form)
   HomePageCoctails()
 });
 
@@ -74,7 +106,7 @@ searchBtn.addEventListener("click", e => {
   e.preventDefault()
   cleanSlate(container)
   cleanSlate(form)
-  searchForm()
+  searchForm() //272
 
 })
 
@@ -84,15 +116,13 @@ searchBtn.addEventListener("click", e => {
 randomBtn.addEventListener("click", e => {
   cleanSlate(container)
   cleanSlate(form)
-  getCocktailRandom()
+  getCocktailRandom() //connect fetchen
+
   if (x.matches) {
     randomDrinkBtn()
   }
-  
 
 })
-
-
 //////// FUNCTION FOR A RANDOM DRINK. CLEARS AND CREATES ////////
 
  function randomDrinkBtn() {
@@ -100,20 +130,19 @@ randomBtn.addEventListener("click", e => {
   let randomDrinkBtn2 = document.createElement("button")
   form.append(randomDrinkBtn2)
   randomDrinkBtn2.innerText = "Get a random Cocktail"
-  randomDrinkBtn2.classList.add("drinkBtn", "drinkBtn2")
+  randomDrinkBtn2.classList.add("drinkBtn", "randomDrinkBtn2")
   randomDrinkBtn2.style.width = "300px"
-  
-  
 
   randomDrinkBtn2.addEventListener("click", e => {
     cleanSlate(container)
-    getCocktailRandom()
+    getCocktailRandom() //connect fetchen
     if (x.matches) {
       randomDrinkBtn()
     }
   })
 
 }
+
 
 //////// SCROLL EVENT ////////
 
@@ -145,26 +174,22 @@ function HomePageCoctails() {
   homepagefetch("Margarita")
 }
 
-function cleanSlate(clearHtml) {
+function cleanSlate(clearHtml) { //Clears HTML -_-
   clearHtml.innerHTML = "";
 }
+
 function getCocktailRandom() {
   fetch(urlRandom)
     .then(response => {
-      if (response.status !== 200) {
+      if (response.status !== 200) {//200 Code that displays that code works T_T
         alert("error")
       }
       return response.json()
     })
-    .then(drinks => {
-
-      getACoctail(drinks)
-
-    })
+    .then(drinks => getACoctail(drinks)) // kallar på funktionen som skappar drinken
     .catch(err => {
       console.log(err);
     })
-  cleanSlate(container);
 }
 
 function getCocktailByName(namn) {
@@ -175,10 +200,7 @@ function getCocktailByName(namn) {
       }
       return response.json()
     })
-    .then(drink => {
-      console.log(drink);
-      getACoctail(drink)
-    })
+    .then(drink => getACoctail(drink))
     .catch(err => {
       console.log(err);
     })
@@ -221,6 +243,8 @@ function homepagefetch(namn) {
     })
 
 }
+
+
 
 //////// FUNCTION TO FETCH INFORMATION AND CREATE ELEMENTS WITH DOM PAST A FOR LOOP  ////////
 
@@ -291,18 +315,19 @@ function searchForm() {
   searchDrinkBtn.addEventListener("click", e => {
     e.preventDefault()
     cleanSlate(container)
+    
     if (searchInput.value !== "") {
       getCocktailByName(searchInput.value);
     }
     else if (searchInput.value === "") {
       let article = document.createElement("article")
-      container.append(article)
+      container.append(article)      
 
       let information = document.createElement("h3")
       information.innerHTML = "You need to search for a drink! If you are too drunk? Don't worry, just press the random drink button ;)"
       article.append(information)
 
-    }
+    }    
     //////// CLEAR THE SITE AND INPUT VALUE   ////////
 
     searchInput.value = "";
@@ -318,6 +343,8 @@ function searchForm() {
 
   });
 }
+
+ 
 ////////  SCROLL FUNCTION, CREATES A SCROLL ICON. IF scrollBtn   ////////               
 ////////    IS FALSE/NOT DEFINED, THE IF STATMENT WILL RUN      ////////
 
@@ -353,38 +380,6 @@ function differentBrowserFunction() {
   document.documentElement.scrollTop = 0; 
   container.appendChild(scrollBtn);  
 }
-
-////////         MODAL EVENTS.              ////////
-
-aboutUsBtn.addEventListener("click", e => {
-  aboutModal.style.display = "block"
-});
-
-closeAboutUs.addEventListener("click", e => {
-  aboutModal.style.display = "none"
-})
-
-window.addEventListener("click", e => {
-  if (e.target == aboutModal) {
-    aboutModal.style.display = "none"
-  }
-});
-
-contactBtn.addEventListener("click", e => {
-  contactModal.style.display = "block"
-});
-
-closeContact.addEventListener("click", e => {
-  contactModal.style.display = "none"
-
-});
-
-window.addEventListener("click", e => {
-  if (e.target == contactModal) {
-    contactModal.style.display = "none"
-  }
-});
-
 
 
 

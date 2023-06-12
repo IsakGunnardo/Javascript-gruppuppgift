@@ -10,13 +10,13 @@ html {
 
 body {
     background-image: url(img/djungel2.jpg);
-
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     object-fit: cover;
 }
 
+/* root-color */
 :root {
     --linkbackground: rgba(28, 217, 28, 0.629);
     --searchfieldcolor: rgba(28, 217, 28, 0.956);
@@ -24,7 +24,7 @@ body {
     --modalcolor: rgba(28, 217, 28, 0.8)
 }
 
-/* navigation bar*/
+/* navigation bar */
 .header {
     background-image: url(img/coctailshome.3.jpg);
     width: 100%;
@@ -40,6 +40,8 @@ body {
     width: 50%;
     height: auto;
     border-radius: 100%;
+    position: relative;
+    z-index: -3; 
 
 }
 
@@ -52,6 +54,8 @@ body {
 }
 
 .navMenu {
+    margin-top: -8%;
+    height: 308px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -59,8 +63,7 @@ body {
 }
 
 .navItem {
-    list-style: none;
-    
+    list-style: none;  
 }
 
 .navItem:hover {
@@ -77,12 +80,12 @@ body {
     background-color: var(--linkbackground);
     border-radius: 20px;
     padding: 0 10px;
+   
 
 }
 
 .navLink:hover {
     color: var(--hovercolor);
-
 }
 
 /* hamburger menyn*/
@@ -100,8 +103,10 @@ body {
     transition: all 0.3s ease-in-out;
     background-color: white;
 }
-/*serch form */
-form {
+
+/*search form */
+.search-form {
+    margin-top: -7%;
     display: flex;
     margin-left: 35%;
     gap: 30px;
@@ -109,7 +114,6 @@ form {
 }
 
 input {
-
     font-size: 1em;
     color: black;
     width: 300px;
@@ -120,7 +124,6 @@ input {
 }
 
 .drinkBtn {
-
     font-size: 1em;
     color: white;
     width: 100px;
@@ -129,64 +132,54 @@ input {
     padding: 5px 10px;
     border: 0;
 }
+
 .drinkRecipe {
     font-size: 20px;
-
-
-
 }
-/*Modal About-us, Contact*/
 
+/*Modal About-us, Contact*/
 #about-us-div,
 #contact-div {
     display: none;
-
     position: fixed;
     z-index: 5;
     padding-top: 100px;
     left: 0;
     text-align: center;
     top: 0px;
-    bottom: 0;
-    ;
+    bottom: 0px;
     width: 100%;
     height: 100%;
+
     background-color: var(--modalcolor);
     background-color: rgba(97, 138, 103, 0.4);
-
-
-
-
 }
 
-.modalUL {
+.modalDIV {
     display: flex;
-    flex-direction: column;
 
-    font-size: 20px;
-    margin-top: 40px;
-    margin: 10px;
-    margin-left: 35%;
-    text-align: start;
+   text-align: center;
+   justify-content: center;
+
+   margin-top: 5%;
+   font-size: 20px;
+
+
+
+;
 }
 
-.modalLI {
+.modalLabel {
     list-style: none;
     font-weight: bold;
     ;
 }
 
-.modalLI>a {
-    color: black
+.modalLabel>a {
+    color: blue
 }
 
-.modalfieldset {
-    text-align: center;
-    height: 100%;
-    width: 100%;
-    color: black;
 
-}
 
 .about-us-class,
 .contact-class {
@@ -195,7 +188,8 @@ input {
     padding: 20px;
     border: 1px solid black;
     width: 50%;
-    height: 50%;
+    height: 50% auto;
+
 }
 
 #closeaboutus,
@@ -215,23 +209,39 @@ input {
     cursor: pointer;
 }
 
-#letterFieldset {
-    width: 100%;
-    text-align: end;
+.about-us-class > p {
+    margin-top: 15%;
 }
-
 #modalForm {
+
+    margin-top: 5%;
     display: flex;
     flex-direction: column;
-    text-align: center;
     justify-content: center;
     align-items: center;
 }
+#modalForm > input {
+    background-color: whitesmoke;
+}
+#modalForm > label{
+    margin: 10px
+}
+#modalForm > button{
+    background-color: lightgray;
+    width: 35%;
+    margin: 5px;
+    border-radius: 20px;
+}
+#modalForm > button:hover{
+    scale: 1.2;
+}
 
-/*drinkBtn2 is a random coctail btn*/
-.drinkBtn2 {
+#signUP{
+    animation: scale 1.5 1s alternate infinite;
+}
+/*drinkBtn2 is a random cocktail btn*/
+.randomDrinkBtn2 {
     display: none;
-
 }
 
 /* main style drinks*/
@@ -245,8 +255,6 @@ main {
     align-items: center;
     justify-content: center;
     gap: 20px;
-
-
 }
 
 #container {
@@ -260,20 +268,15 @@ article {
     text-align: center;
     margin-top: 2rem;
     padding: 20px 40px 40px 40px;
-
     background: rgba(255, 255, 255, 0.466);
     max-width: 50em;
-   
 }
-
-
 
 .homePageImg {
     min-width: 250px;
     min-height: 250px;
     max-width: 400px;
     max-height: 400px;
-
 }
 
 /* media */
@@ -305,6 +308,7 @@ article {
         width: 100%;
         text-align: center;
         transition: 0.3s;
+        margin-top: -6%;
     }
 
     .navItem {
@@ -317,15 +321,8 @@ article {
 
 }
 
-/*
-.Search-input {
-  text-align: center;
-}
-*/
-
-.drinkBtn2 {
+.randomDrinkBtn2 {
     display: block;
-
 }
 
 .scrollbutton {
@@ -341,6 +338,9 @@ article {
 
 .scrollbutton:hover {
     transform: scale(1.4);
+    color: rgba(28, 217, 28, 0.8);
+
+
 }
 
 .homePageDrinks {
@@ -373,3 +373,12 @@ article {
       transform: translate3d(4px, 0, 0);
     }
   }
+
+@keyframes scale{
+    0%{
+        scale: 100%;
+    }
+    100%{
+        scale: 0%;
+    }
+}
