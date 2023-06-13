@@ -123,25 +123,6 @@ randomBtn.addEventListener("click", e => {
   }
 
 })
-//////// FUNCTION FOR A RANDOM DRINK. CLEARS AND CREATES ////////
-
- function randomDrinkBtn() {
- cleanSlate(form)
-  let randomDrinkBtn2 = document.createElement("button")
-  form.append(randomDrinkBtn2)
-  randomDrinkBtn2.innerText = "Get a random Cocktail"
-  randomDrinkBtn2.classList.add("drinkBtn", "randomDrinkBtn2")
-  randomDrinkBtn2.style.width = "300px"
-
-  randomDrinkBtn2.addEventListener("click", e => {
-    cleanSlate(container)
-    getCocktailRandom() //connect fetchen
-    if (x.matches) {
-      randomDrinkBtn()
-    }
-  })
-
-}
 
 
 //////// SCROLL EVENT ////////
@@ -157,9 +138,42 @@ scrollBtn.addEventListener("click", () => {
 
 ///////// FUNCTIONS /////////
 
+//////// FUNCTION FOR A RANDOM DRINK. CLEARS AND CREATES ////////
+// 1
+function randomDrinkBtn() {
+  cleanSlate(form)
+   let randomDrinkBtn2 = document.createElement("button")
+   form.append(randomDrinkBtn2)
+   randomDrinkBtn2.innerText = "Get a random Cocktail"
+   randomDrinkBtn2.classList.add("drinkBtn", "randomDrinkBtn2")
+   randomDrinkBtn2.style.width = "300px"
+ 
+   randomDrinkBtn2.addEventListener("click", e => {
+     cleanSlate(container)
+     getCocktailRandom() //connect fetchen
+     if (x.matches) {
+       randomDrinkBtn()
+     }
+   })
+ 
+ }
 
+ function getCocktailRandom() {
+  fetch(urlRandom)
+    .then(response => {
+      if (response.status !== 200) {//200 Code that displays that code works T_T
+        alert("error")
+      }
+      return response.json()
+    })
+    .then(drinks => getACoctail(drinks)) // kallar på funktionen som skappar drinken
+    .catch(err => {
+      console.log(err);
+    })
+}
 //// HOMEPAGE FETCH FOR THE SELECTED DRINKS              /////
 /// FETCH FOR RANDOM DRINKS AND SEARCH OPTION FOR DRINKS ////
+//2
 function HomePageCoctails() {
   cleanSlate(cocktailDiv)
 
@@ -178,19 +192,9 @@ function cleanSlate(clearHtml) { //Clears HTML -_-
   clearHtml.innerHTML = "";
 }
 
-function getCocktailRandom() {
-  fetch(urlRandom)
-    .then(response => {
-      if (response.status !== 200) {//200 Code that displays that code works T_T
-        alert("error")
-      }
-      return response.json()
-    })
-    .then(drinks => getACoctail(drinks)) // kallar på funktionen som skappar drinken
-    .catch(err => {
-      console.log(err);
-    })
-}
+
+// 3
+
 
 function getCocktailByName(namn) {
   fetch(urlName + namn)
@@ -247,7 +251,7 @@ function homepagefetch(namn) {
 
 
 //////// FUNCTION TO FETCH INFORMATION AND CREATE ELEMENTS WITH DOM PAST A FOR LOOP  ////////
-
+//3
 function getACoctail(drink) {
 
   let article = document.createElement("article")
@@ -299,7 +303,7 @@ function getACoctail(drink) {
 }
 
 //////// FUNCTION TO SEARCH FOR A DRINK ////////
-
+// 4 
 function searchForm() {
 
   let searchInput = document.createElement("input")
@@ -347,7 +351,7 @@ function searchForm() {
  
 ////////  SCROLL FUNCTION, CREATES A SCROLL ICON. IF scrollBtn   ////////               
 ////////    IS FALSE/NOT DEFINED, THE IF STATMENT WILL RUN      ////////
-
+//5
 function scrollInitiation() {
   if (!scrollBtn) {
     scrollBtn = document.createElement("div");
