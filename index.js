@@ -106,7 +106,7 @@ searchBtn.addEventListener("click", e => {
   e.preventDefault()
   cleanSlate(container)
   cleanSlate(form)
-  searchForm() //272
+  searchForm() 
 
 })
 
@@ -139,7 +139,7 @@ scrollBtn.addEventListener("click", () => {
 ///////// FUNCTIONS /////////
 
 //////// FUNCTION FOR A RANDOM DRINK. CLEARS AND CREATES ////////
-// 1
+// 1 Malin
 function randomDrinkBtn() {
   cleanSlate(form)
    let randomDrinkBtn2 = document.createElement("button")
@@ -173,7 +173,7 @@ function randomDrinkBtn() {
 }
 //// HOMEPAGE FETCH FOR THE SELECTED DRINKS              /////
 /// FETCH FOR RANDOM DRINKS AND SEARCH OPTION FOR DRINKS ////
-//2
+//2 - modaler Matias
 function HomePageCoctails() {
   cleanSlate(cocktailDiv)
 
@@ -191,9 +191,9 @@ function HomePageCoctails() {
 function cleanSlate(clearHtml) { //Clears HTML -_-
   clearHtml.innerHTML = "";
 }
+ //
 
-
-// 3
+// 3 Isak
 
 
 function getCocktailByName(namn) {
@@ -251,7 +251,7 @@ function homepagefetch(namn) {
 
 
 //////// FUNCTION TO FETCH INFORMATION AND CREATE ELEMENTS WITH DOM PAST A FOR LOOP  ////////
-//3
+
 function getACoctail(drink) {
 
   let article = document.createElement("article")
@@ -303,7 +303,7 @@ function getACoctail(drink) {
 }
 
 //////// FUNCTION TO SEARCH FOR A DRINK ////////
-// 4 
+// 4 simon
 function searchForm() {
 
   let searchInput = document.createElement("input")
@@ -351,7 +351,7 @@ function searchForm() {
  
 ////////  SCROLL FUNCTION, CREATES A SCROLL ICON. IF scrollBtn   ////////               
 ////////    IS FALSE/NOT DEFINED, THE IF STATMENT WILL RUN      ////////
-//5
+//5 Philip
 function scrollInitiation() {
   if (!scrollBtn) {
     scrollBtn = document.createElement("div");
