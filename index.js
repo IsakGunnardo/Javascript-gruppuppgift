@@ -106,7 +106,7 @@ searchBtn.addEventListener("click", e => {
   e.preventDefault()
   cleanSlate(container)
   cleanSlate(form)
-  searchForm() 
+  searchForm()
 
 })
 
@@ -142,23 +142,23 @@ scrollBtn.addEventListener("click", () => {
 // 1 Malin
 function randomDrinkBtn() {
   cleanSlate(form)
-   let randomDrinkBtn2 = document.createElement("button")
-   form.append(randomDrinkBtn2)
-   randomDrinkBtn2.innerText = "Get a random Cocktail"
-   randomDrinkBtn2.classList.add("drinkBtn", "randomDrinkBtn2")
-   randomDrinkBtn2.style.width = "300px"
- 
-   randomDrinkBtn2.addEventListener("click", e => {
-     cleanSlate(container)
-     getCocktailRandom() //connect fetchen
-     if (x.matches) {
-       randomDrinkBtn()
-     }
-   })
- 
- }
+  let randomDrinkBtn2 = document.createElement("button")
+  form.append(randomDrinkBtn2)
+  randomDrinkBtn2.innerText = "Get a random Cocktail"
+  randomDrinkBtn2.classList.add("drinkBtn", "randomDrinkBtn2")
+  randomDrinkBtn2.style.width = "300px"
 
- function getCocktailRandom() {
+  randomDrinkBtn2.addEventListener("click", e => {
+    cleanSlate(container)
+    getCocktailRandom() //connect fetchen
+    if (x.matches) {
+      randomDrinkBtn()
+    }
+  })
+
+}
+
+function getCocktailRandom() {
   fetch(urlRandom)
     .then(response => {
       if (response.status !== 200) {//200 Code that displays that code works T_T
@@ -173,7 +173,7 @@ function randomDrinkBtn() {
 }
 //// HOMEPAGE FETCH FOR THE SELECTED DRINKS              /////
 /// FETCH FOR RANDOM DRINKS AND SEARCH OPTION FOR DRINKS ////
-//2 - modaler Matias
+//2 - modaler Mattias
 function HomePageCoctails() {
   cleanSlate(cocktailDiv)
 
@@ -191,7 +191,7 @@ function HomePageCoctails() {
 function cleanSlate(clearHtml) { //Clears HTML -_-
   clearHtml.innerHTML = "";
 }
- //
+//
 
 // 3 Isak
 
@@ -287,13 +287,13 @@ function getACoctail(drink) {
 
       let ingredientElement = document.createElement("span");
       ingredientElement.innerHTML = "<br>" + ingredient;
-      ingredientElement.style= "text-decoration: underline; font-size: 22px;"
+      ingredientElement.style = "text-decoration: underline; font-size: 22px;"
       drinkRecipe.appendChild(ingredientElement);
 
       let measureElement = document.createElement("span");
-      measureElement.innerHTML =  ":  " + measure;
+      measureElement.innerHTML = ":  " + measure;
       drinkRecipe.appendChild(measureElement);
-      
+
     }
 
   }
@@ -309,7 +309,8 @@ function searchForm() {
   let searchInput = document.createElement("input")
   searchInput.type = "text";
   searchInput.placeholder = "Mojito... Martini... etc";
- 
+  searchInput.classList.add("searchInput")
+
   let searchDrinkBtn = document.createElement("button")
   searchDrinkBtn.innerText = "Search Cocktail"
   searchDrinkBtn.classList.add("drinkBtn")
@@ -319,19 +320,19 @@ function searchForm() {
   searchDrinkBtn.addEventListener("click", e => {
     e.preventDefault()
     cleanSlate(container)
-    
+
     if (searchInput.value !== "") {
       getCocktailByName(searchInput.value);
     }
     else if (searchInput.value === "") {
       let article = document.createElement("article")
-      container.append(article)      
+      container.append(article)
 
       let information = document.createElement("h3")
       information.innerHTML = "You need to search for a drink! If you are too drunk? Don't worry, just press the random drink button ;)"
       article.append(information)
 
-    }    
+    }
     //////// CLEAR THE SITE AND INPUT VALUE   ////////
 
     searchInput.value = "";
@@ -348,9 +349,9 @@ function searchForm() {
   });
 }
 
- 
+
 ////////  SCROLL FUNCTION, CREATES A SCROLL ICON. IF scrollBtn   ////////               
-////////    IS FALSE/NOT DEFINED, THE IF STATMENT WILL RUN      ////////
+////////    IS FALSE/NOT DEFINED, THE IF STATEMENT WILL RUN    ////////
 //5 Philip
 function scrollInitiation() {
   if (!scrollBtn) {
@@ -381,8 +382,8 @@ function scrollFunction() {
 
 function differentBrowserFunction() {
   document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0; 
-  container.appendChild(scrollBtn);  
+  document.documentElement.scrollTop = 0;
+  container.appendChild(scrollBtn);
 }
 
 

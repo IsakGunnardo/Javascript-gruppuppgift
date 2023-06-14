@@ -113,7 +113,7 @@ body {
     border-radius: 5px 5px 5px 10px;
 }
 
-input {
+.searchInput {
     font-size: 1em;
     color: black;
     width: 300px;
